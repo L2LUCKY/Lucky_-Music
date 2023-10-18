@@ -1,22 +1,33 @@
 from pyrogram.types import InlineKeyboardButton
 
 import config
-from AarohiX.utils import time_to_sec
+from AarohiX.utils import random 
+
+## After Edits with Timer Bar
+
+
+selections = [
+     "▁▄▂▇▄▅▄▅▃", 
+     "▁▃▇▂▅▇▄▅▃", 
+     "▃▁▇▂▅▃▄▃▅", 
+     "▃▄▂▄▇▅▃▅▁", 
+     "▁▃▄▂▇▃▄▅▃", 
+     "▃▁▄▂▅▃▇▃▅", 
+     "▁▇▄▂▅▄▅▃▄", 
+     "▁▃▅▇▂▅▄▃▇", 
+     "▃▅▂▅▇▁▄▃▁", 
+     "▇▅▂▅▃▄▃▁▃", 
+     "▃▇▂▅▁▅▄▃▁", 
+     "▅▄▇▂▅▂▄▇▁", 
+     "▃▅▂▅▃▇▄▅▃",
+]
+
+
+## After Edits with Timer Bar
 
 
 def stream_markup_timer(_, videoid, chat_id, played, dur):
-    played_sec = time_to_sec(played)
-    total_sec = time_to_sec(dur)
-
-    x, y = str(round(played_sec/total_sec,1)).split(".")
-    pos = int(y)
-
-    line = "╌"
-    circle = "♡"
-
-    bar = line*(pos-1)
-    bar += circle
-    bar += line*(10-len(bar))
+    bar = random.choice(selections)
 
     buttons = [
         [
@@ -27,39 +38,41 @@ def stream_markup_timer(_, videoid, chat_id, played, dur):
         ],
         [
             InlineKeyboardButton(
-                text="💘▷💘",
+                text="❣️",
                 callback_data=f"ADMIN Resume|{chat_id}",
             ),
             InlineKeyboardButton(
-                text="❤‍🔥II❤‍🔥", callback_data=f"ADMIN Pause|{chat_id}"
+                text="❤️", callback_data=f"ADMIN Pause|{chat_id}"
+            ),
+            InlineKeyboardButton( 
+                text="💞", callback_data=f"add_playlist {videoid}"
             ),
             InlineKeyboardButton(
-                text="🌹‣‣I🌹", callback_data=f"ADMIN Skip|{chat_id}"
+                text="💖", callback_data=f"ADMIN Skip|{chat_id}"
             ),
             InlineKeyboardButton(
-                text="❣️▢❣️", callback_data=f"ADMIN Stop|{chat_id}"
+                text="💝", callback_data=f"ADMIN Stop|{chat_id}"
             ),
         ],
         [
             InlineKeyboardButton(
-                text="➕ ✨ ᴩʟᴀʏʟɪsᴛ ✨ ➕",
-                callback_data=f"add_playlist {videoid}",
+                text="💖𝐎ᴡɴᴇʀ💖", url=f"https://t.me/itz_Lucky_Raja",
             ),
             InlineKeyboardButton(
-                text="🥀 sᴜᴩᴩᴏʀᴛ 🥀", url=config.SUPPORT_GROUP
+                text="💝𝐂ᴏ 𝐎ᴡɴᴇʀ💝", url=f"https://t.me/MR_RAZA_ROY",
             ),
         ],
         [
            InlineKeyboardButton(
-                text="💝ᴏᴡɴᴇʀ💝", url=f"https://t.me/sexyaaditya",
+                text="❣️𝐀𝐀𝐑𝐔❣️",               url=f"https://t.me/Notanki_aaru",
             ),
            InlineKeyboardButton(
-                text="💝ᴄᴏ ᴏᴡɴᴇʀ💝", url=f"https://t.me/Baapxvipin",
+                text="❤️𝐇ᴇᴀʀᴛ♡𝐇ᴀᴄᴋᴇʀ❤️", url=f"https://t.me/Hacker_girl59",
             ),
         ],
         [
             InlineKeyboardButton(
-                text="✯🥺 ᴄʟᴏsᴇ 🥺✯", callback_data="close"
+                text="🌹𝐂ʟᴏ𝐬ᴇ🌹", callback_data="close"
             )
         ],
     ]
@@ -74,7 +87,7 @@ def telegram_markup_timer(_, chat_id, played, dur):
     pos = int(y)
 
     line = "—"
-    circle = "◉"
+    circle = "💖"
 
     bar = line*(pos-1)
     bar += circle
@@ -89,33 +102,38 @@ def telegram_markup_timer(_, chat_id, played, dur):
         ],
         [
             InlineKeyboardButton(
-                text="💘▷💘",
+                text="❣️",
                 callback_data=f"ADMIN Resume|{chat_id}",
             ),
             InlineKeyboardButton(
-                text="❤‍🔥II❤‍🔥", callback_data=f"ADMIN Pause|{chat_id}"
+                text="❤️", callback_data=f"ADMIN Pause|{chat_id}"
             ),
             InlineKeyboardButton(
-                text="🌹‣‣I🌹", callback_data=f"ADMIN Skip|{chat_id}"
+                text="💖", callback_data=f"ADMIN Skip|{chat_id}"
             ),
             InlineKeyboardButton(
-                text="❣️▢❣️", callback_data=f"ADMIN Stop|{chat_id}"
+                text="💝", callback_data=f"ADMIN Stop|{chat_id}"
             ),
         ],
         [
            InlineKeyboardButton(
-                text="💝ᴏᴡɴᴇʀ💝", url=f"https://t.me/sexyaaditya",
+                text="💖𝐎ᴡɴᴇʀ💖", url=f"https://t.me/itz_Lucky_Raja",
             ),
            InlineKeyboardButton(
-                text="💝ᴄᴏ ᴏᴡɴᴇʀ💝", url=f"https://t.me/Baapxvipin",
+                text="❣️𝐀𝐀𝐑𝐔❣️", url=f"https://t.me/Notanki_aaru",
             ),
         ],
         [
             InlineKeyboardButton(
-                text="🥀 sᴜᴩᴩᴏʀᴛ 🥀", url=config.SUPPORT_GROUP
+                text="❤️𝐇ᴇᴀʀᴛ♡𝐇ᴀᴄᴋᴇʀ❤️", url=f"https://t.me/Hacker_girl59",
+            ),
+        ],
+        [
+            InlineKeyboardButton(
+                text="💝𝐂ᴏ 𝐎ᴡɴᴇʀ💝", url=f"https://t.me/MR_RAZA_ROY",
             ),
             InlineKeyboardButton(
-                text="✯🥺 ᴄʟᴏsᴇ 🥺✯", callback_data="close"
+                text="🌹𝐂ʟᴏ𝐬ᴇ🌹", callback_data="close"
             )
         ],
     ]
@@ -126,39 +144,38 @@ def stream_markup(_, videoid, chat_id):
     buttons = [
         [
             InlineKeyboardButton(
-                text="💘▷💘",
+                text="❣️",
                 callback_data=f"ADMIN Resume|{chat_id}",
             ),
             InlineKeyboardButton(
-                text="❤‍🔥II❤‍🔥", callback_data=f"ADMIN Pause|{chat_id}"
+                text="❤️", callback_data=f"ADMIN Pause|{chat_id}"
             ),
             InlineKeyboardButton(
-                text="🌹‣‣I🌹", callback_data=f"ADMIN Skip|{chat_id}"
+                text="💖", callback_data=f"ADMIN Skip|{chat_id}"
             ),
             InlineKeyboardButton(
-                text="❣️▢❣️", callback_data=f"ADMIN Stop|{chat_id}"
+                text="💝", callback_data=f"ADMIN Stop|{chat_id}"
             ),
         ],
         [
             InlineKeyboardButton(
-                text="➕ ✨ ᴩʟᴀʏʟɪsᴛ ✨ ➕",
-                callback_data=f"add_playlist {videoid}",
+                text="💖𝐎ᴡɴᴇʀ💖", url=f"https://t.me/itz_Lucky_Raja",
             ),
             InlineKeyboardButton(
-                text="🥀 sᴜᴩᴩᴏʀᴛ 🥀", url=config.SUPPORT_GROUP
+                text="💝𝐂ᴏ 𝐎ᴡɴᴇʀ💝", url=f"https://t.me/MR_RAZA_ROY",
             ),
         ],
         [
            InlineKeyboardButton(
-                text="💝ᴏᴡɴᴇʀ💝", url=f"https://t.me/sexyaaditya",
+                text="❣️𝐀𝐀𝐑𝐔❣️",               url=f"https://t.me/Notanki_aaru",
             ),
            InlineKeyboardButton(
-                text="💝ᴄᴏ ᴏᴡɴᴇʀ💝", url=f"https://t.me/Baapxvipin",
+                text="❤️𝐇ᴇᴀʀᴛ♡𝐇ᴀᴄᴋᴇʀ❤️", url=f"https://t.me/Hacker_girl59",
             ),
         ],
         [
             InlineKeyboardButton(
-                text="✯🥺 ᴄʟᴏsᴇ 🥺✯", callback_data="close"
+                text="🌹𝐂ʟᴏ𝐬ᴇ🌹", callback_data="close"
             )
         ],
     ]
@@ -169,33 +186,38 @@ def telegram_markup(_, chat_id):
     buttons = [
         [
             InlineKeyboardButton(
-                text="💘▷💘",
+                text="❣️",
                 callback_data=f"ADMIN Resume|{chat_id}",
             ),
             InlineKeyboardButton(
-                text="❤‍🔥II❤‍🔥", callback_data=f"ADMIN Pause|{chat_id}"
+                text="❤️", callback_data=f"ADMIN Pause|{chat_id}"
             ),
             InlineKeyboardButton(
-                text="🌹‣‣I🌹", callback_data=f"ADMIN Skip|{chat_id}"
+                text="💖", callback_data=f"ADMIN Skip|{chat_id}"
             ),
             InlineKeyboardButton(
-                text="❣️▢❣️", callback_data=f"ADMIN Stop|{chat_id}"
+                text="💝", callback_data=f"ADMIN Stop|{chat_id}"
             ),
         ],
         [
            InlineKeyboardButton(
-                text="💝ᴏᴡɴᴇʀ💝", url=f"https://t.me/sexyaaditya",
+                text="💖𝐎ᴡɴᴇʀ💖", url=f"https://t.me/itz_Lucky_Raja",
             ),
            InlineKeyboardButton(
-                text="💝ᴄᴏ ᴏᴡɴᴇʀ💝", url=f"https://t.me/Baapxvipin",
+                text="❣️𝐀𝐀𝐑𝐔❣️", url=f"https://t.me/Notanki_aaru",
             ),
         ],
         [
             InlineKeyboardButton(
-                text="🥀 sᴜᴩᴩᴏʀᴛ 🥀", url=config.SUPPORT_GROUP
+                text="❤️𝐇ᴇᴀʀᴛ♡𝐇ᴀᴄᴋᴇʀ❤️", url=f"https://t.me/Hacker_girl59",
+            ),
+        ],
+        [
+            InlineKeyboardButton(
+                text="💝𝐂ᴏ 𝐎ᴡɴᴇʀ💝", url=f"https://t.me/MR_RAZA_ROY",
             ),
             InlineKeyboardButton(
-                text="✯🥺 ᴄʟᴏsᴇ 🥺✯", callback_data="close"
+                text="🌹𝐂ʟᴏ𝐬ᴇ🌹", callback_data="close"
             )
         ],
     ]
@@ -257,7 +279,7 @@ def livestream_markup(_, videoid, user_id, mode, channel, fplay):
     buttons = [
         [
             InlineKeyboardButton(
-                text="🖤 ʟɪᴠᴇ 🖤",
+                text="🖤 Lɪᴠᴇ 🖤",
                 callback_data=f"LiveStream {videoid}|{user_id}|{mode}|{channel}|{fplay}",
             ),
         ],
@@ -295,7 +317,7 @@ def slider_markup(
         ],
         [
             InlineKeyboardButton(
-                text="◁",
+                text="💓",
                 callback_data=f"slider B|{query_type}|{query}|{user_id}|{channel}|{fplay}",
             ),
             InlineKeyboardButton(
@@ -303,7 +325,7 @@ def slider_markup(
                 callback_data=f"forceclose {query}|{user_id}",
             ),
             InlineKeyboardButton(
-                text="▷",
+                text="💗",
                 callback_data=f"slider F|{query_type}|{query}|{user_id}|{channel}|{fplay}",
             ),
         ],
@@ -317,39 +339,41 @@ def queue_markup(_, videoid, chat_id):
     buttons = [
         [
             InlineKeyboardButton(
-                text="💘▷💘",
+                text="❣️",
                 callback_data=f"ADMIN Resume|{chat_id}",
             ),
             InlineKeyboardButton(
-                text="❤‍🔥II❤‍🔥", callback_data=f"ADMIN Pause|{chat_id}"
+                text="❤️", callback_data=f"ADMIN Pause|{chat_id}"
+            ),
+            InlineKeyboardButton( 
+                text="💞", callback_data=f"add_playlist {videoid}"
             ),
             InlineKeyboardButton(
-                text="🌹‣‣I🌹", callback_data=f"ADMIN Skip|{chat_id}"
+                text="💖", callback_data=f"ADMIN Skip|{chat_id}"
             ),
             InlineKeyboardButton(
-                text="❣️▢❣️", callback_data=f"ADMIN Stop|{chat_id}"
+                text="💝", callback_data=f"ADMIN Stop|{chat_id}"
             ),
         ],
         [
             InlineKeyboardButton(
-                text="➕ ✨ ᴩʟᴀʏʟɪsᴛ ✨ ➕",
-                callback_data=f"add_playlist {videoid}",
+                text="💖𝐎ᴡɴᴇʀ💖", url=f"https://t.me/itz_Lucky_Raja",
             ),
             InlineKeyboardButton(
-                text="🥀 sᴜᴩᴩᴏʀᴛ 🥀", url=config.SUPPORT_GROUP
-            )
+                text="💝𝐂ᴏ 𝐎ᴡɴᴇʀ💝", url=f"https://t.me/MR_RAZA_ROY",
+            ),
         ],
         [
            InlineKeyboardButton(
-                text="💝ᴏᴡɴᴇʀ💝", url=f"https://t.me/sexyaaditya",
+                text="❣️𝐀𝐀𝐑𝐔❣️",               url=f"https://t.me/Notanki_aaru",
             ),
            InlineKeyboardButton(
-                text="💝ᴄᴏ ᴏᴡɴᴇʀ💝", url=f"https://t.me/Baapxvipin",
+                text="❤️𝐇ᴇᴀʀᴛ♡𝐇ᴀᴄᴋᴇʀ❤️", url=f"https://t.me/Hacker_girl59",
             ),
         ],
         [
             InlineKeyboardButton(
-                text="✯🥺 ᴄʟᴏsᴇ 🥺✯", callback_data="close"
+                text="🌹𝐂ʟᴏ𝐬ᴇ🌹", callback_data="close"
             )
         ],
     ]
